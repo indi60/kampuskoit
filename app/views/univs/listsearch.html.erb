@@ -1,0 +1,36 @@
+<h1>Hasil Pencarian</h1>
+
+<table>
+  <tr>
+    <th>Nama pt</th>
+    <th>Tahun berdiri</th>
+    <th>Email</th>
+    <th>Website</th>
+    <th>Alamat</th>
+    <th>Telepon</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @univs.each do |univ| %>
+  <tr>
+    <td><%= univ.nama_pt %></td>
+    <td><%= univ.tahun_berdiri %></td>
+    <td><%= univ.email %></td>
+    <td><%= univ.website %></td>
+    <td><%= univ.alamat %></td>
+    <td><%= univ.telepon %></td>
+    <td><%= link_to 'Profil', profil_path(univ) %></td>
+    <td><%= link_to 'Show', univ %></td>
+    <td><%= link_to 'Edit', edit_univ_path(univ) %></td>
+    <td><%= link_to 'Destroy', univ, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+ <%= will_paginate @posts %>
+
+<br />
+
+<%= link_to 'New Univ', new_univ_path %>

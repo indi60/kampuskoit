@@ -38,10 +38,18 @@
     <td><%= link_to 'Show', univ %></td>
     <td><%= link_to 'Edit', edit_univ_path(univ) %></td>
     <td><%= link_to 'Destroy', univ, confirm: 'Are you sure?', method: :delete %></td>
+
   </tr>
 <% end %>
 </table>
+ <%= will_paginate @posts %>
 
 <br />
 
 <%= link_to 'New Univ', new_univ_path %>
+<p>
+  <%= form_tag listsearch_path, method: :post do %>
+    <input type='text' id='search' name='search' />
+    <%= submit_tag "Search co", name: nil %>
+  <% end %>
+</p>

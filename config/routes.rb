@@ -26,6 +26,9 @@ Campus::Application.routes.draw do
 
   match '/confirm', controller: 'subscribers', action: 'confirm'
   
+  #searching
+  match '/listsearch', to: 'univs#listsearch'
+  match '/profil', to: 'univs#profil'
   #match '*path', :controller => "visitors", :action => "new"
 
   # The priority is based upon order of creation:

@@ -2,8 +2,8 @@ class UnivsController < ApplicationController
   # GET /univs
   # GET /univs.json
   def index
-    @univs = Univ.all
-
+    #@univs = Univ.all
+    @univs = Univ.paginate(:page => params[:page], :per_page => 5).order('id DESC')
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @univs }
@@ -78,6 +78,23 @@ class UnivsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to univs_url }
       format.json { head :no_content }
+    end
+  end
+
+  def listsearch
+    @univs = Univ.paginate(:page => params[:page], :per_page => 5).order('id DESC')
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @univs }
+    end
+  end
+
+  def profil
+      @univ = Univ.find(params[:id])
+
+      respond_to do |format|
+      format.html # profil.html.erb
+      format.json { render json: @univ }
     end
   end
 end
